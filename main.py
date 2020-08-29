@@ -1,4 +1,4 @@
-import pysafebooru
+import safebooru_app
 
 def main():
     user_tags = str(input("Enter tags separated by comma (e.g. cat ears, blue eyes): "))
