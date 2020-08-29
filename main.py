@@ -6,19 +6,9 @@ def main():
 
     user_tags = clean_tags(user_tags)
 
-    try:
-        post_object = pysafebooru.pysbooru(user_tags, user_limit)
-    except:
-        print("Oops... Didn't work D:") #Crash the ship!
-        exit
-
+    post_object = pysafebooru.pysbooru(user_tags, user_limit)
     image_data = post_object.get_posts()
-
-    try:
-        images = generate_post_link(image_data)
-    except:
-        print("Oops... Didn't work D:")
-        exit
+    images = generate_post_link(image_data)
 
     temp = 1
     for i in images:
@@ -37,7 +27,6 @@ def clean_tags(tags):
     fixed_user_tags = tags.replace(', ', '%20').replace(' ', '_').lower()
 
     return fixed_user_tags
-
 
 if __name__ == '__main__':
     main()
