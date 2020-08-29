@@ -6,7 +6,7 @@ def main():
 
     user_tags = clean_tags(user_tags)
 
-    post_object = pysafebooru.pysbooru(user_tags, user_limit)
+    post_object = safebooru_app.pysbooru(user_tags, user_limit)
     image_data = post_object.get_posts()
     if image_data == False:
         print("Didn't work :(")
