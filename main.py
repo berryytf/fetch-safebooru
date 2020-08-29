@@ -8,12 +8,15 @@ def main():
 
     post_object = pysafebooru.pysbooru(user_tags, user_limit)
     image_data = post_object.get_posts()
-    images = generate_post_link(image_data)
+    if image_data == False:
+        print("Didn't work :(")
+    else:
+        images = generate_post_link(image_data)
 
-    temp = 1
-    for i in images:
-        print(f"Image {temp}: ".format() + i)
-        temp += 1
+        temp = 1
+        for i in images:
+            print(f"Image {temp}: ".format() + i)
+            temp += 1
 
 def generate_post_link(data):
     base_url = 'https://safebooru.org/index.php?page=post&s=view'

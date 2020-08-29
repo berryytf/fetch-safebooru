@@ -22,7 +22,7 @@ class pysbooru:
         try:
             post_array = self.__create_response(str(self.post_limit), self.tags) #generate json response
         except:
-            return "Oops... Didn't work D:"
+            return False
         else:
             return post_array
 
