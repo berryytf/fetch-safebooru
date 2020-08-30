@@ -7,12 +7,11 @@ Uses the safebooru API. There is no API key needed.
 """
 
 class pysbooru:
-    def __init__(self, tags='', post_limit=100, page_range=20): #post limit default 100 images
+    def __init__(self, tags='', post_limit=100): #post limit default 100 images
         self.tags = 'tags=' + tags
         self.post_limit = 'limit=' + str(post_limit)
         self.post_id = ''
         self.image = ''
-        self.page_range = page_range
 
     def get_posts(self):
         images = []
@@ -28,7 +27,7 @@ class pysbooru:
 
     # Private function to deal with link concatenation
     def __create_response(self, *args):
-        page_number = random.randint(1, self.page_range)
+        page_number = random.randint(1, 20)
         booru_url = 'https://safebooru.org/index.php?page=dapi&s=post&q=index&json=1' # Default url for all responses
         
         if len(args) == 0:
