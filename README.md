@@ -2,4 +2,4 @@
 
 Pulls images from Safebooru using a json response
 
-May contain NSFW content.
+# May contain NSFW content.
