@@ -1,3 +1,4 @@
 # fetch-safebooru
 
-anime pictures!
+Pulls images from Safebooru using a json response
+May contain NSFW content.
