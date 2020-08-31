@@ -27,19 +27,21 @@ class pysbooru:
 
     # Private function to deal with link concatenation
     def __create_response(self, *args):
-        page_number = random.randint(1, 20)
         booru_url = 'https://safebooru.org/index.php?page=dapi&s=post&q=index&json=1' # Default url for all responses
+        image_dict = []
+
         
-        if len(args) == 0:
-            return False
-        else:
-            for i in args:
-                booru_url = booru_url + f'&{i}'.format()
-        booru_url = booru_url + '&pid=' + str(page_number)
+        while image_dict == []:
+            page_number = random.randint(1, 50)
+            if len(args) == 0:
+                return False
+            else:
+                for i in args:
+                    booru_url = booru_url + f'&{i}'
+            booru_url = booru_url + '&pid=' + str(page_number)
 
-        json_obj = urllib2.urlopen(booru_url) # json into an object
-        image_dict = json.load(json_obj) # Stores list of image dictionaries into a variable
-
+            json_obj = urllib2.urlopen(booru_url) # json into an object
+            image_dict = json.load(json_obj) # Stores list of image dictionaries into a variable
 
         return image_dict
 
