@@ -2,7 +2,14 @@ import safebooru_app
 
 def main():
     user_tags = str(input("Enter tags separated by comma (e.g. cat ears, blue eyes): "))
-    user_limit = int(input("Enter number of desired images: "))
+
+    while True:
+        try:
+            user_limit = int(input("Enter number of desired images: "))
+            if type(user_limit) == int:
+                break
+        except:
+            print("Invalid input.")
 
     user_tags = clean_tags(user_tags) # Fix up the tags so the safebooru API can read it
 
