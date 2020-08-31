@@ -44,5 +44,25 @@ class pysbooru:
             image_dict = json.load(json_obj) # Stores list of image dictionaries into a variable
 
         return image_dict
+    
+    #Create link for actual post
+    def generate_post_link(self, data):
+        base_url = 'https://safebooru.org/index.php?page=post&s=view'
+        ids = []
+        #iterate through list of dictionaries
+        for i in range(len(data)):
+            ids.append(base_url + f'&id={str(data[i]["id"])}')
+        
+        return ids
+
+    #Create link to direct image file.
+    def generate_image_link(self, data):
+        base_url = 'https://safebooru.org/images'
+        ids = []
+        #iterate through list of dictionaries
+        for i in range(len(data)):
+            ids.append(base_url + f'/{str(data[i]["directory"])}/{str(data[i]["image"])}')  
+
+        return ids
 
 

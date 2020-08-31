@@ -18,32 +18,12 @@ def main():
     if image_data == False:
         print("Didn't work :(") # Crash the ship!
     else:
-        posts = generate_post_link(image_data)
-        images = generate_image_link(image_data)
+        posts = post_object.generate_post_link(image_data)
+        images = post_object.generate_image_link(image_data)
         temp = 1
         for i in range(user_limit):
             print(f'Post {temp}: {posts[i]}, Image URL: {images[i]}')
             temp += 1
-
-#Create link for actual post
-def generate_post_link(data):
-    base_url = 'https://safebooru.org/index.php?page=post&s=view'
-    ids = []
-    #iterate through list of dictionaries
-    for i in range(len(data)):
-        ids.append(base_url + f'&id={str(data[i]["id"])}')
-    
-    return ids
-
-#Create link to direct image file.
-def generate_image_link(data):
-    base_url = 'https://safebooru.org/images'
-    ids = []
-    #iterate through list of dictionaries
-    for i in range(len(data)):
-        ids.append(base_url + f'/{str(data[i]["directory"])}/{str(data[i]["image"])}')  
-
-    return ids
 
 def clean_tags(tags):
     fixed_user_tags = tags.replace(', ', '%20').replace(' ', '_').lower() # API readable tags
