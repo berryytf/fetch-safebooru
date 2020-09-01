@@ -30,7 +30,6 @@ class pysbooru:
         booru_url = 'https://safebooru.org/index.php?page=dapi&s=post&q=index&json=1' # Default url for all responses
         image_dict = []
 
-        
         while image_dict == []:
             page_number = random.randint(1, 50)
             if len(args) == 0:
